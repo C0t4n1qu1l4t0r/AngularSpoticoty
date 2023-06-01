@@ -1,0 +1,14 @@
+<form (ngSubmit)="edit(song)">
+  <div class="form-group">
+    <label for="name">Nombre de la Canción:</label>
+    <input type="text" id="name" name="name">
+    <label for="duration">Duración de la Canción</label>
+    <input type="text" id="duration" name="duration">
+    <select name="artist" id="artist">
+      <option>Seleccione el artista de la canción</option>
+      <option *ngFor="let artist of artists" [value]="artist.id">{{artist.name}}</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Editar</button>
+</form>

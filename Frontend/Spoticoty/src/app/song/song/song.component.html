@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nombre de la cancion</th>
+      <th>Duración</th>
+      <th>Artista de la canción</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let song of songs">
+      <td>{{ song.name }}</td>
+      <td>{{ song.duration }}</td>
+      <td>{{ song.artist_id }}</td>
+      <td>
+        <a class="btn btn-info" href="javascript:void(0);" routerLink="'/song/' + {{song.id}} + '/edit'">Editar</a>
+        <a class="btn btn-danger" href="javascript:void(0);" (click)="delete(song.id)">Borrar</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

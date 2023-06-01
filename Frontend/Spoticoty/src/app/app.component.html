@@ -1,0 +1,28 @@
+<router-outlet></router-outlet>
+<div>
+  <div class="navbar">
+    <div class="d-flex justify-content-center align-items-center">
+      <a class="btn btn-info" [routerLink]="['']">Home</a>
+      <a class="btn btn-info" [routerLink]="['/publish']">Publicar canción</a>
+      <a class="btn btn-info" [routerLink]="['/start']">Registrar artista</a>
+    </div>
+
+  </div>
+
+  <h1 class="text-center">Spoticoty</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h2>Canciones</h2>
+        <app-song></app-song>
+      </div>
+      <div class="col-6">
+        <h2>Artistas</h2>
+        <app-artist></app-artist>
+      </div>
+    </div>
+  </div>
+
+
+</div>

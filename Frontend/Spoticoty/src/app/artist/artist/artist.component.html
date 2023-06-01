@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nombre del Artista</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let artist of artists">
+      <td>{{ artist.name }}</td>
+      <td>
+        <a class="btn btn-info" href="javascript:void(0);" routerLink="'/artist/' + {{artist.id}} + '/edit'">Editar</a>
+        <a class="btn btn-danger" href="javascript:void(0);" (click)="delete(artist.id)">Borrar</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
