@@ -1,7 +1,7 @@
-<form (ngSubmit)="start(artist)">
+<form (ngSubmit)="start()">
   <div class="form-group">
     <label for="name">Nombre del Artista:</label>
-    <input type="text" id="name" name="name">
+    <input type="text" id="name" name="name" [(ngModel)]="artist.name">
   </div>
 
   <button type="submit" class="btn btn-primary">Añadir</button>

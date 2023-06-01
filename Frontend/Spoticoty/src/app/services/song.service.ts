@@ -23,9 +23,13 @@ export class SongService {
     return this.http.post<any>(url, song);
   }
 
-  edit(song: any){
-    const url = this.apiUrl + '/song/' + song.id + '/edit';
-    return this.http.put<any>(url, song);
+  edit(song: any, songId: number){
+    const url = this.apiUrl + '/song/' + songId + '/edit';
+    const req = {
+      ...song,
+      songId
+    }
+    return this.http.put<any>(url, req);
   }
 
   delete(id:any){

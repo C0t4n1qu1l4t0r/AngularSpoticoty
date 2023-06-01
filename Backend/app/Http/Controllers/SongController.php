@@ -9,6 +9,33 @@ use Illuminate\Support\Facades\Validator;
 
 class SongController extends Controller
 {
+    public function index(){
+        return Song::all();
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'artist_id' => 'required|integer',
+            'name' => 'required|string|max:255',
+            'duration' => 'required|string|max:50',
+        ]);
+
+        $song = Song::findOrFail($id);
+        $song->update($validatedData);
+
+        return response()->json(['message' => 'Data updated successfully', 'data' => $song], 200);
+    }
+
+    public function destroy($id)
+    {
+        $song = Song::findOrFail($id);
+        $song->delete();
+
+        return response()->json(['message' => 'Data deleted successfully'], 200);
+    }
+
+
     public function publish(Request $request)
     {
         $validator = Validator::make($request->all(), [

@@ -38,7 +38,11 @@ Route::controller(SettingController::class)->group(function(){
 });
 
 Route::controller(SongController::class)->group(function(){
-    Route::post('publish', 'publish');
+    Route::get('/songs', 'index');
+    Route::post('/publish', 'publish');
+    Route::put('/song/{id}/edit', 'update');
+    Route::delete('/song/{id}/delete', 'destroy');
+
     Route::get('song/{song}', 'show');
     Route::get('song/{song}/artist', 'show_artist');
     Route::get('song/{song}/playlists', 'show_playlists');
@@ -52,7 +56,11 @@ Route::controller(PlaylistController::class)->group(function(){
 });
 
 Route::controller(ArtistController::class)->group(function(){
-    Route::post('start', 'register');
+    Route::get('/artists', 'index');
+    Route::post('/start', 'register');
+    Route::put('/artist/{id}/edit', 'update');
+    Route::delete('/artist/{id}/delete', 'destroy');
+
     Route::get('artist/{artist}', 'show');
     Route::get('artist/{artist}/songs', 'show_songs');
     Route::get('artist/{artist}/users', 'show_users');

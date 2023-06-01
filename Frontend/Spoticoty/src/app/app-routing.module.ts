@@ -5,10 +5,12 @@ import { EditSongComponent } from './edit-song/edit-song.component';
 import { CreateSongComponent } from './create-song/create-song.component';
 import { CreateArtistComponent } from './create-artist/create-artist/create-artist.component';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   {path: 'publish', component: CreateSongComponent},
   {path: 'start', component: CreateArtistComponent},
   {path: 'artist/:id/edit', component: EditArtistComponent},

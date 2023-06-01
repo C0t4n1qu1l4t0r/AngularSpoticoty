@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { SongComponent } from '../song/song/song.component';
+import { ActivatedRoute ,Router } from '@angular/router';
 import { SongService } from '../services/song.service';
+import { Song } from './song.model';
+
 
 @Component({
   selector: 'app-edit-song',
@@ -11,8 +11,9 @@ import { SongService } from '../services/song.service';
 })
 export class EditSongComponent {
   artists: any[] = [];
-  song: any;
-  constructor(public router: Router, private songService: SongService) {
+  song: Song = new Song('','',1);
+  constructor(public router: Router, private songService: SongService, private route: ActivatedRoute ) {
+    this.getArtists();
   }
 
   getArtists() {
@@ -22,11 +23,21 @@ export class EditSongComponent {
       })
   }
 
-  edit(song: any) {
-    this.songService.edit(song)
-      .subscribe((res) => {
-        this.song = res;
-      })
+  edit() {
+      const artistId = this.route.snapshot.params['id'];
+
+      console.log(this.song,artistId);
+
+      this.songService.edit(this.song,artistId).subscribe(
+        (res: any) => {
+          console.log(res);
+          this.song = res.data;
+          this.router.navigate(['/home']);
+        },
+        (error: any) => {
+          console.error(error);
+        }
+      );
   }
 
 

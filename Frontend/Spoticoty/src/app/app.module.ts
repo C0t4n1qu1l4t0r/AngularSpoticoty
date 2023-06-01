@@ -9,6 +9,8 @@ import { ArtistComponent } from './artist/artist/artist.component';
 import { CreateArtistComponent } from './create-artist/create-artist/create-artist.component';
 import { EditArtistComponent } from './edit-artist/edit-artist/edit-artist.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,12 +21,14 @@ import { HttpClientModule } from '@angular/common/http';
     CreateSongComponent,
     ArtistComponent,
     CreateArtistComponent,
-    EditArtistComponent
+    EditArtistComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,18 +14,22 @@ export class ArtistService {
     return this.http.get(this.apiUrl + '/artists');
   }
 
-  start(artist: any){
-    const url = this.apiUrl + '/start';
+  start(artist: any) {
+    let url = this.apiUrl + '/start';
     return this.http.post<any>(url, artist);
   }
 
-  edit(artist: any){
-    const url = this.apiUrl + '/artist/' + artist.id + '/edit';
-    return this.http.put<any>(url, artist);
+  edit(artist: any, artistId: number) {
+    let url = this.apiUrl + '/artist/' + artistId + '/edit';
+    const req = {
+      ...artist,
+      artistId
+    }
+    return this.http.put<any>(url, req);
   }
 
   delete(id:any){
-    const url = this.apiUrl + '/artist/' + id + '/delete';
+    let url = this.apiUrl + '/artist/' + id + '/delete';
     return this.http.delete<any>(url, id);
   }
 
